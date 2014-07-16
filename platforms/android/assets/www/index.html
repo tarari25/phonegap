@@ -1,0 +1,71 @@
+<!DOCTYPE html> 
+<html>
+<head>
+	<title>Page Title</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="js/jquery-1.11.1.min.js"></script>
+    <script src="js/jquery.mobile-1.4.3.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/jquery.mobile-1.4.3.min.css" />
+    
+</head>
+
+<body>
+    <!-- Página 1 -->
+	<div id="pagina1" data-role="page" class="ui-page-theme-a">
+        <div data-role="header"><h1>Pagina 1</h1></div>
+        <div role="main" class="ui-content">
+            
+            <div>contenido</div>        
+            
+            <div><a href="#pagina2" data-transition="slide" class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-arrow-r" >Página 2</a></div>  
+            
+            <button id="localizacion" class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-location" onclick="localizar()">Localizar</button>
+            <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>wee
+        </div>
+        <div data-role="footer">Pie</div>
+    </div>
+    
+    <!-- Página 2 -->
+	<div id="pagina2" data-role="page" class="ui-page-theme-b">
+        <div data-role="header"><h1>Pagina 2</h1></div>
+        <div role="main" class="ui-content">
+            
+            <div>contenido</div>        
+            
+            <div><a href="#pagina1" data-transition="slide" data-direction="reverse" class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-arrow-l" >Página 1</a></div>  
+        
+        </div>
+        <div data-role="footer">Pie</div>
+    </div>
+    
+    <script>
+    
+        // onSuccess Callback
+        // This method accepts a Position object, which contains the
+        // current GPS coordinates
+        //
+        var onSuccess = function(position) {
+            alert('Latitude: '          + position.coords.latitude          + '\n' +
+                  'Longitude: '         + position.coords.longitude         + '\n' +
+                  'Altitude: '          + position.coords.altitude          + '\n' +
+                  'Accuracy: '          + position.coords.accuracy          + '\n' +
+                  'Altitude Accuracy: ' + position.coords.altitudeAccuracy  + '\n' +
+                  'Heading: '           + position.coords.heading           + '\n' +
+                  'Speed: '             + position.coords.speed             + '\n' +
+                  'Timestamp: '         + position.timestamp                + '\n');
+        };
+
+        // onError Callback receives a PositionError object
+        //
+        function onError(error) {
+            alert('code: '    + error.code    + '\n' +
+                  'message: ' + error.message + '\n');
+        }
+        
+        function localizar(){
+            navigator.geolocation.getCurrentPosition(onSuccess, onError);
+        }
+        
+    </script>
+</body>
+</html>
